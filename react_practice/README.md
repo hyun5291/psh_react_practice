@@ -1,16 +1,25 @@
-# React + Vite
+1. npm create vite@latest
+2. npm install tailwindcss @tailwindcss/vite
+3. src/index.css 파일을 초기화한다.
+4. @import "tailwindcss"; 해당 코드를 index.css에 붙여넣기 한다.
+5. vite.config.js 파일을 갱신한다.
+6. root 경로에 jsconfig.json 파일을 생성한다.
+7. 아래 코드를 jsconfig.json에 붙여넣기 한다.
+   {
+   "compilerOptions": {
+   "paths": {
+   "@/_": ["./_"]
+   }
+   }
+   }
+8. shadcn ui 설치: npx shadcn@latest init
+9. 새로운 VS Code 화면에서 새 터미널에서 git clone https://github.com/9diin/shadcn-template.git 명령어 입력
+10. 템플릿 생성 후에 터미널을 열고 npm install 명령어를 입력해주세요.
+11. shadcn ui 컴포넌트 설치
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-   npx shadcn@latest add avatar
+-   npx shadcn@latest add button
+-   npx shadcn@latest add input
+-   npx shadcn@latest add skeleton
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+12. lucide icon 설치: npm install lucide-react
