@@ -1,5 +1,9 @@
 import { ChevronDown, Menu, Search } from "lucide-react";
-import { Button, Input, Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Button, Input, Separator, Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAppStore, faFacebook, faGooglePlay, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelopeOpen, faNewspaper } from "@fortawesome/free-regular-svg-icons";
 
 const menu = [
     {
@@ -45,11 +49,125 @@ function AppHeader() {
                             <SheetTrigger>
                                 <Menu />
                             </SheetTrigger>
-                            <SheetContent side="left">
-                                <SheetHeader>
-                                    <SheetTitle>Are you absolutely sure?</SheetTitle>
-                                    <SheetDescription>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</SheetDescription>
-                                </SheetHeader>
+                            <SheetContent side="left" className={"px-8 gap-8 overflow-y-scroll"}>
+                                <div className="flex flex-col gap-6 mt-16">
+                                    <img src="src/assets/logo.svg" alt="" className="w-24" />
+                                    <div className="flex flex-col">
+                                        <p className="text-sm">회원가입 또는 로그인을 통해 13만개</p>
+                                        <p className="text-sm">이상의 크리에이티브를 발견하고 수집해보세요.</p>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <Button className={"bg-[#4acad4] hover:bg-[#41a3aa]"}>회원가입</Button>
+                                        <Button variant={"outline"}>로그인</Button>
+                                    </div>
+                                </div>
+                                <Separator />
+                                <div className="flex flex-col gap-6">
+                                    {menu.map((item, index) => {
+                                        return (
+                                            <div key={index} className={`h-full flex items-center gap-1 font-medium font-semibold `}>
+                                                <p className={`text-[15px] ${item.underline && "mt-0.5"}`}>{item.label}</p>
+                                                {item.dropdown && <ChevronDown size={16} />}
+                                                {item.newest && <p className="text-xs text-[#05BCC6] font-medium">NEW</p>}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <Separator />
+                                <div>22</div>
+                                <Separator />
+                                <div>
+                                    <Accordion type="single" collapsible>
+                                        <AccordionItem value="item-1">
+                                            <AccordionTrigger>
+                                                <p>패밀리 사이트</p>
+                                            </AccordionTrigger>
+                                            <AccordionContent>
+                                                <div className="flex">
+                                                    <img src="src/assets/logo.svg" alt="" className="w-22" />
+                                                    <p>노트플리오</p>
+                                                    <p>노트플리오</p>
+                                                </div>
+                                                <div className="flex">
+                                                    <img src="src/assets/logo.svg" alt="" className="w-22" />
+                                                    <p>노트플리오</p>
+                                                    <p>노트플리오</p>
+                                                </div>
+                                                <div className="flex">
+                                                    <img src="src/assets/logo.svg" alt="" className="w-22" />
+                                                    <p>노트플리오</p>
+                                                    <p>노트플리오</p>
+                                                </div>
+                                                <div className="flex">
+                                                    <img src="src/assets/logo.svg" alt="" className="w-22" />
+                                                    <p>노트플리오</p>
+                                                    <p>노트플리오</p>
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    </Accordion>
+                                </div>
+                                <Separator />
+                                <div className="flex flex-col gap-2">
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faNewspaper} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>노트폴리오 매거진</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faEnvelopeOpen} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>노폴레터</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faInstagram} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>노트폴리오 인스타그램</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faFacebook} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>노트폴리오 페이스북</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faYoutube} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>노트폴리오 유튜브</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Separator orientation="vertical" className="h-3!" />
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faAppStore} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>iOS App</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <FontAwesomeIcon icon={faGooglePlay} />
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>Android App</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                    <img src="src/assets/logo.svg" alt="@LOGO" className="w-22 ml-8" />
+                                </div>
                             </SheetContent>
                         </Sheet>
                         {/* 로고 */}
